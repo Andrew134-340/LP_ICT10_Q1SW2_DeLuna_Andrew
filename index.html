@@ -1,0 +1,165 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Pizza Whirl - Menu</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #f94144, #f3722c, #f9c74f, #90be6d);
+            background-size: 400% 400%;
+            animation: gradientFlow 15s ease infinite;
+            font-family: 'Segoe UI', sans-serif;
+            color: #333;
+        }
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            margin-top: 40px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .container:hover {
+            transform: scale(1.01);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.35);
+        }
+        .header {
+            margin-bottom: 30px;
+        }
+        .restaurant-icon {
+            font-size: 3rem;
+            color: #d62828;
+            margin-bottom: 10px;
+            transition: transform 0.5s ease;
+        }
+        .restaurant-icon:hover {
+            transform: rotate(360deg) scale(1.2);
+            color: #f77f00;
+        }
+        #name1 {
+            color: #d62828;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 900;
+        }
+        #owner, #since {
+            color: #6c757d;
+        }
+        table {
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        thead {
+            background: linear-gradient(90deg, #d62828, #f77f00);
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        tbody tr {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        tbody tr:hover {
+            transform: scale(1.03);
+            box-shadow: inset 0 0 10px rgba(246, 189, 96, 0.6);
+            cursor: pointer;
+        }
+        tbody tr:nth-child(odd) {
+            background-color: #fff9f3;
+        }
+        tbody tr:nth-child(even) {
+            background-color: #fff0e6;
+        }
+        .price {
+            font-weight: bold;
+            color: #d62828;
+        }
+        .opening-hours {
+            margin-top: 25px;
+            font-size: 1.1rem;
+            color: #333;
+            font-weight: 600;
+        }
+        .badge {
+            font-size: 1rem;
+            padding: 12px 24px;
+            border-radius: 40px;
+            background: linear-gradient(45deg, #d62828, #f77f00, #f9c74f);
+            color: #fff;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .badge:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="container text-center">
+        <div class="header">
+            <i class="fas fa-pizza-slice restaurant-icon"></i>
+            <div id="name1" class="display-4 fw-bold"></div>
+            <div id="owner" class="fs-5 mt-2"></div>
+            <div id="since" class="fs-6"></div>
+        </div>
+        
+        <div class="menu-card">
+            <table class="table table-hover align-middle">
+                <thead>
+                    <tr>
+                        <th id="heading1" colspan="2"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Product Name</strong></td>
+                        <td><strong>Price (₱)</strong></td>
+                    </tr>
+                    <tr>
+                        <td id="prod1"></td>
+                        <td id="price1" class="price"></td>
+                    </tr>
+                    <tr>
+                        <td id="prod2"></td>
+                        <td id="price2" class="price"></td>
+                    </tr>
+                    <tr>
+                        <td id="prod3"></td>
+                        <td id="price3" class="price"></td>
+                    </tr>
+                    <tr>
+                        <td id="prod4"></td>
+                        <td id="price4" class="price"></td>
+                    </tr>
+                    <tr>
+                        <td id="prod5"></td>
+                        <td id="price5" class="price"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="opening-hours">
+            <i class="fas fa-clock me-2"></i>
+            <span id="openingHours"></span>
+        </div>
+        
+        <div class="text-center mt-4">
+            <span id="orderType" class="badge"></span>
+        </div>
+    </div>
+    
+    <script type="py" src="main.py"></script>
+</body>
+</html>
